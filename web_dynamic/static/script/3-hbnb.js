@@ -25,10 +25,10 @@ $(document).ready(function () {
 
   $.ajax({
     url: 'http://0.0.0.0:5001/api/v1/places_search/',
-     contentType: 'application/json; charset=utf-8',
-    dataType: "json",
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
     method: 'POST',
-//    data: JSON.stringify({}),
+    //    data: JSON.stringify({}),
     data: '{}',
     success: function (data) {
       for (let i = 0; i < data.length; i++) {
