@@ -12,10 +12,12 @@ $(document).ready(function () {
   const amenityDict = {};
   // List of amenity names
   const amList = [];
+  const amListId = [];
   $('input[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
       amenityDict[$(this).attr('data-id')] = $(this).attr('data_name');
       amList.push($(this).attr('data-name'));
+      amListId.push($(this).attr('data-id'));
     } else {
       delete amenityDict[$(this).attr('data-id')];
       amList.splice(amList.indexOf($(this).attr('data-name')), 1);
@@ -44,11 +46,13 @@ $(document).ready(function () {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
       method: 'POST',
-      data: amList,
+      data: JSON.stringify({'amenities': amListId}),
       success: function (data) {
         for (let i = 0; i < data.length; i++) {
-          $('section.places').append('<article> <div class="title_box"> <h2>' + data[i].name + '</h2> <div class="price_by_night">' + data[i].price_by_night + '</div> </div> <div class="information"> <div class="max_guest">' + data[i].max_guest + ' Guests</div> <div class="number_rooms">' + data[i].number_rooms + ' Rooms</div> <div class="number_bathrooms">' + data[i].number_bathrooms + ' Bathrooms </div> </div> <!-- <div class="user"> --> <!-- </div> --> <div class="description">' + data[i].description + '</div> </article>'
-          );
+            console.log(data[i].name);
+            $('section.places').empty();
+            $('section.places').append('<article> <div class="title_box"> <h2>' + data[i].name + '</h2> <div class="price_by_night">' + data[i].price_by_night + '</div> </div> <div class="information"> <div class="max_guest">' + data[i].max_guest + ' Guests</div> <div class="number_rooms">' + data[i].number_rooms + ' Rooms</div> <div class="number_bathrooms">' + data[i].number_bathrooms + ' Bathrooms </div> </div> <!-- <div class="user"> --> <!-- </div> --> <div class="description">' + data[i].description + '</div> </article>'
+            );
         }
       }
     });
