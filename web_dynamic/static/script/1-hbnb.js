@@ -4,7 +4,7 @@ $(document).ready(function() {
     // List of amenity names
     let am_list = [];
     $('input[type="checkbox"]').change(function () {
-	if ($(this).is(:'checked') {
+	if ($(this).is(':checked')) {
 	    amenity_dict[$(this).attr('data-id')] = $(this).attr('data_name');
 	    am_list.push($(this).attr('data-name'));
 	} else {
@@ -13,3 +13,4 @@ $(document).ready(function() {
 	}
 	    $('.amenities h4').text(am_list);
     });
+});
