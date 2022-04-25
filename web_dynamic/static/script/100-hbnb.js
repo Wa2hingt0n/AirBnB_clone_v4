@@ -27,7 +27,7 @@ $(document).ready(function () {
   let amenityDict = {};  //Dictionary of 'amenity_ID': 'amenity_name'
   let amList = [];       // List of amenity names
   let amListId = [];     // List of amenity IDs
-  $('input[type="checkbox"]').change(function () {
+  $('.amenities input[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
       amenityDict[$(this).attr('data-id')] = $(this).attr('data_name');
       amList.push($(this).attr('data-name'));
@@ -42,8 +42,8 @@ $(document).ready(function () {
   // States checkboxes listening function
   let statesDict = {};  //Dictionary of 'state_ID': 'state_name'
   let statesList = [];  // List of state names
-  let statesID = [];    // List of state IDs
-  $('.locations ul li input[type="checkbox"]').change(function () {
+  let statesListId = [];    // List of state IDs
+  $('.locations .state input[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
       statesDict[$(this).attr('data-id')] = $(this).attr('data_name');
       statesList.push($(this).attr('data-name'));
@@ -58,8 +58,8 @@ $(document).ready(function () {
   // Cities checkboxes listening function
   let citiesDict = {};  //Dictionary of 'cities_ID': 'cities_name'
   let citiesList = [];  // List of cities names
-  let citiesID = [];    // List of cities IDs
-  $('.locations ul li li input[type="checkbox"]').change(function () {
+  let citiesListId = [];    // List of cities IDs
+  $('.locations .city input[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
       citiesDict[$(this).attr('data-id')] = $(this).attr('data_name');
       citiesList.push($(this).attr('data-name'));
