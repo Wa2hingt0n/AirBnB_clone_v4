@@ -14,10 +14,10 @@ header .logo {
 }
 #api_status {
     border-radius: 50%;
-    width=40px;
-    height=40px;
-    top=50%;
-    right=30px;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    right: 30px;
     background-color: #CCCCCC;
     float: right;
 }
